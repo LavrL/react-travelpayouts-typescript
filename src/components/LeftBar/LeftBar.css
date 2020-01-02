@@ -1,0 +1,14 @@
+.LeftBar {
+    padding: 20px 25px 40px 25px;
+    background-color: #1B1D29;
+}
+
+.LeftBar__t-letter {
+    text-align: center;
+    margin-bottom: 68px;
+}
+
+.LeftBar__icon-circle {
+    text-align: center;
+    margin-bottom: 48px;
+}
