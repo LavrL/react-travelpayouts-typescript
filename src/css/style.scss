@@ -1,4 +1,4 @@
-@import './normalize.min.css';
+@import '~normalize.css';
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -8,4 +8,17 @@
 body {
   user-select: none;
 }
+
+ul, ol, dl { 
+  margin:0 auto; 
+  padding:0;
+}
+p {
+  margin: 0;
+}
+
+// html, body, #app, #app>div {
+//   height: 100%
+// }
+
 

@@ -11,8 +11,8 @@ export class LeftBar extends React.Component<LeftBarProps, {}> {
         let icon_circle_arr = [];
         for (let i = 0; i < 8; ++i) {
             icon_circle_arr.push(
-            <div className="LeftBar__icon-circle">
-                <img key={i} src={icon_circle} alt="circle" />
+            <div key={i} className="LeftBar__icon-circle">
+                <img  src={icon_circle} alt="circle" />
             </div>)
         }
 

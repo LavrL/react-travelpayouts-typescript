@@ -1,11 +1,9 @@
 .App {
-    max-width: 1280px;
-    height: 100vh;
     display: flex;
 }
+
 .App__container {
     max-width: 1280px;
     max-height: 100vh;
     display: flex;
-
 }

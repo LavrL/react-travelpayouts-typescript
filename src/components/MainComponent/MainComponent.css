@@ -1,3 +1,93 @@
 .MainComponent {
     display: block;
+    width: 100%;
+}
+
+.MainComponent__title {
+    background-color: #ffffff;
+}
+
+.MainComponent__title-list {
+    display: flex;
+    list-style: none;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.MainComponent__title-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainComponent__title-item:first-child {
+    margin-right: 30px;
+}
+
+.MainComponent__title-item-balanss {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    color: #7D7D7D;
+}
+
+.MainComponent__title-item-price {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 26px;
+    color: #262626;
+}
+
+.MainComponent__MainMenu {
+    padding-top: 40px;
+    padding-left: 30px;
+    background-color: #E5E5E5;
+    height: 100vh;
+}
+
+.MainComponent__MainMenu_title {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 39px;
+    line-height: 46px;
+    margin-bottom: 16px;
+}
+
+.MainComponent__MainMenu_filtr {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #7D7D7D;
+    margin-bottom: 7px;
+}
+
+.MainComponent__MainMenu_form2 {
+    display: flex;
+}
+
+.MainComponent__MainMenu_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainComponent__MainMenu_form-input {
+    border: 1px solid #2F80ED;
+    border-radius: 4px;
+    width: 300px;
+    height: 48px;
+    margin-right: 8px;
+    padding-left: 12px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
 }

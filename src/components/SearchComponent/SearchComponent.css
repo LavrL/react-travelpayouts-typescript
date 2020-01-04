@@ -1,0 +1,81 @@
+.SearchComponent {
+    display: block;
+}
+
+.SearchComponent__items {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.SearchComponent__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    background: #FFFFFF;
+    border: 1px solid #E2E5EC;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-right: 32px;
+    margin-top: 24px;
+}
+
+.SearchComponent__info {
+    display: block;
+    margin-right: 20px;
+}
+
+.SearchComponent__promo {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-right: 20px;
+    position: relative;
+}
+
+.SearchComponent__promocode_input-icon_copy {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.SearchComponent__discount {
+    display: flex;
+}
+
+.SearchComponent__title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 29px;
+    line-height: 42px;
+}
+
+.SearchComponent__description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.SearchComponent__promocode {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.SearchComponent__promocode_input {
+    width: 300px;
+    padding-top: 15px;
+    padding-bottom: 17px;
+    padding-right: 5px;
+    border: 1px solid #CFD2D9;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
