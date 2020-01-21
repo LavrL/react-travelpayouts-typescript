@@ -30,10 +30,16 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.getPromocodes = this.getPromocodes.bind(this)
+        this.clearInput = this.clearInput.bind(this);
     }
     changeHandler(event: any) {
         this.setState({ serviss: event.target.value });
-        console.log('Typed - ', this.state.serviss);
+    }
+    clearInput() {
+        console.log('Clearing ...');
+        this.setState({
+            serviss: ''
+        });
     }
     componentDidMount() {
         this.getPromocodes();
@@ -46,15 +52,16 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                 }
                 return response.json()
             })
-            .then(bonuses =>
-                {this.setState({
+            .then(bonuses => {
+                this.setState({
                     bonuses: bonuses.bonuses as BonusesData[],
                     balance: bonuses.header.balance,
                     next_payout: bonuses.header.next_payout
                 })
                 console.log('bonuses - ', this.state.bonuses);
                 console.log('bonuses.header.balance - ', this.state.balance);
-                console.log('bonuses.header.next_payout - ', this.state.next_payout); }
+                console.log('bonuses.header.next_payout - ', this.state.next_payout);
+            }
             )
             .catch(error => {
                 console.log('Error = ', error);
@@ -83,18 +90,22 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                     <span className="MainComponent__MainMenu_filtr">Фильтр</span>
                     <div className="MainComponent__MainMenu_form2">
                         <form className="MainComponent__MainMenu_form">
-                            <input className="MainComponent__MainMenu_form-input" type="text" onChange={this.changeHandler} />
+                            <input className="MainComponent__MainMenu_form-input"
+                                type="text"
+                                onChange={this.changeHandler}
+                                value={this.state.serviss} />
                         </form>
-                        <ButtonComponent text="Сбросить" />
+                        <ButtonComponent text="Сбросить"
+                            onClick={this.clearInput} />
                     </div>
-                    
-                    {this.state.bonuses.map((bonus, i ) =>{
-                        return <SearchComponent key={i}
-                                                title = {bonus.title}
-                                                description = {bonus.description}
-                                                link ={bonus.link}
-                                                promocode ={bonus.promocode} />
-                    })}
+                    {this.state.bonuses.filter(bonus => bonus.title.toLowerCase().startsWith(this.state.serviss))
+                        .map((bonus, i) => {
+                            return <SearchComponent key={i}
+                                title={bonus.title}
+                                description={bonus.description}
+                                link={bonus.link}
+                                promocode={bonus.promocode} />
+                        })}
                 </div>
 
             </div >
