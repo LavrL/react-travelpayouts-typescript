@@ -2,6 +2,10 @@ import * as React from 'react';
 import './MainComponent.css';
 import { ButtonComponent } from '../ButtonComponent/ButtonComponent';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
+import i18n from "i18next";
+import { useTranslation, withTranslation, Trans } from 'react-i18next';
+import langEng from '../../assets/en.json';
+import langRu from '../../assets/ru.json';
 
 interface MainComponentProps {
 }
@@ -16,7 +20,8 @@ interface IMainComponentState {
     bonuses: BonusesData[],
     serviss: string,
     balance: number,
-    next_payout: number
+    next_payout: number,
+    balanceTitle: string
 }
 
 export class MainComponent extends React.Component<MainComponentProps, IMainComponentState> {
@@ -26,11 +31,13 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
             serviss: '',
             bonuses: [],
             balance: 0,
-            next_payout: 0
+            next_payout: 0,
+            balanceTitle: i18n.t('Pages.translation.balance')
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.getPromocodes = this.getPromocodes.bind(this)
         this.clearInput = this.clearInput.bind(this);
+        this.changeLanguage = this.changeLanguage.bind(this);
     }
     changeHandler(event: any) {
         this.setState({ serviss: event.target.value });
@@ -43,6 +50,15 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
     }
     componentDidMount() {
         this.getPromocodes();
+    }
+    changeLanguage(lang: string) {
+        i18n.changeLanguage(lang).then( ()=>{
+            i18n.options.lng = lang;
+            i18n.t('key');
+            this.setState({
+                balanceTitle: i18n.t('Pages.translation.balance')
+            })
+        });
     }
     getPromocodes() {
         fetch('/assets/data.json')
@@ -69,12 +85,15 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
     }
 
     render() {
+        //const {t } = this.props;
         return (
             <div className="MainComponent">
                 <div className="MainComponent__title">
                     <ul className="MainComponent__title-list">
                         <li className="MainComponent__title-item">
-                            <p className="MainComponent__title-item-balanss">Баланс</p>
+                            <p className="MainComponent__title-item-balanss">
+                            {this.state.balanceTitle}
+                            </p>
                             <p className="MainComponent__title-item-price">{this.state.balance} ₽</p>
                         </li>
                         <li className="MainComponent__title-item">
@@ -82,6 +101,10 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                             <p className="MainComponent__title-item-price">{this.state.next_payout} ₽</p>
                         </li>
                     </ul>
+                    <div>
+                        <button onClick={() => this.changeLanguage('ru')}>ru</button>
+                        <button onClick={() => this.changeLanguage('en')}>en</button>
+                    </div>
                 </div>
                 <div className="MainComponent__MainMenu">
                     <p className="MainComponent__MainMenu_title">
@@ -111,4 +134,17 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
             </div >
         )
     }
+}
+
+const LanguageSwitcher = () => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng);
+    }
+    return (
+        <div>
+            <button onClick={() => changeLanguage('de')}>de</button>
+            <button onClick={() => changeLanguage('en')}>en</button>
+        </div>
+    )
 }

@@ -8,6 +8,12 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es5",
+
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
   "files": [
     "custom.d.ts"
