@@ -4,6 +4,7 @@
         "payoff": "Payoff",
         "services": "Services",
         "reset": "Reset",
-        "getBonus": "Get Bonus"
+        "getBonus": "Get Bonus",
+        "promocode": "PROMOCODE"
     }
 }

@@ -38,8 +38,12 @@
 
 .SearchComponent__promocode_input-icon_copy {
     position: absolute;
-    bottom: 20px;
+    bottom: 12px;
     right: 20px;
+    border: none;
+}
+button:focus {
+    outline:0;
 }
 
 .SearchComponent__discount {

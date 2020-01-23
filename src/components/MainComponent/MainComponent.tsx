@@ -23,7 +23,8 @@ interface IMainComponentState {
     payoffTitle: string,
     services: string,
     reset: string,
-    getBonus: string
+    getBonus: string,
+    promocodeTitle: string 
 }
 
 export class MainComponent extends React.Component<MainComponentProps, IMainComponentState> {
@@ -38,7 +39,8 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
             payoffTitle: i18n.t('Pages.translation.payoff'),
             services: i18n.t('Pages.translation.services'),
             reset: i18n.t('Pages.translation.reset'),
-            getBonus: i18n.t('Pages.translation.getBonus')
+            getBonus: i18n.t('Pages.translation.getBonus'),
+            promocodeTitle: i18n.t('Pages.translation.promocode')
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.getPromocodes = this.getPromocodes.bind(this)
@@ -66,7 +68,8 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                 payoffTitle: i18n.t('Pages.translation.payoff'),
                 services: i18n.t('Pages.translation.services'),
                 reset: i18n.t('Pages.translation.reset'),
-                getBonus: i18n.t('Pages.translation.getBonus')
+                getBonus: i18n.t('Pages.translation.getBonus'),
+                promocodeTitle: i18n.t('Pages.translation.promocode')
             })
         });
     }
@@ -137,7 +140,8 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                                 description={bonus.description}
                                 link={bonus.link}
                                 promocode={bonus.promocode}
-                                buttonText={this.state.getBonus} />
+                                buttonText={this.state.getBonus}
+                                promocodeTitle={this.state.promocodeTitle} />
                         })}
                 </div>
 
