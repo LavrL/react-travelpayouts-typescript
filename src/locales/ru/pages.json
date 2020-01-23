@@ -1,5 +1,9 @@
 {
     "translation": {
-        "balance": "Баланс"
+        "balance": "Баланс",
+        "payoff": "К выплате",
+        "services": "Сервисы",
+        "reset": "Сбросить",
+        "getBonus": "Получить бонус"
     }
 }

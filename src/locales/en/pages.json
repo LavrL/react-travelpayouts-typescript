@@ -1,5 +1,9 @@
 {
     "translation": {
-        "balance": "Balance"
+        "balance": "Balance",
+        "payoff": "Payoff",
+        "services": "Services",
+        "reset": "Reset",
+        "getBonus": "Get Bonus"
     }
 }

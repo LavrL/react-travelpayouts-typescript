@@ -9,7 +9,8 @@ interface SearchComponentProps {
     title: string
     description: string,
     link: string,
-    promocode: string
+    promocode: string,
+    buttonText: string
 }
 
 export class SearchComponent extends React.Component<SearchComponentProps, {}> {
@@ -21,13 +22,15 @@ export class SearchComponent extends React.Component<SearchComponentProps, {}> {
                         <p className="SearchComponent__title">{this.props.title}</p>
                         <span className="SearchComponent__description">{this.props.description}</span>
                     </div>
-                    <div className="SearchComponent__discount">
-                        <div className="SearchComponent__promo">
-                            <span className="SearchComponent__promocode">{this.props.promocode}</span>
-                            <input className="SearchComponent__promocode_input" type="text" defaultValue="Travelpayouts" />
-                            <a href="#"> <img className="SearchComponent__promocode_input-icon_copy" src={icon_copy} alt="icon_copy" /></a>
+                    <div>
+                        <span className="SearchComponent__promocode">{this.props.promocode}</span>
+                        <div className="SearchComponent__discount">
+                            <div className="SearchComponent__promo">
+                                <input className="SearchComponent__promocode_input" type="text" defaultValue="Travelpayouts" />
+                                <a href="#"> <img className="SearchComponent__promocode_input-icon_copy" src={icon_copy} alt="icon_copy" /></a>
+                            </div>
+                            <ButtonComponent text={this.props.buttonText} />
                         </div>
-                        <ButtonComponent text="Получить бонус" />
                     </div>
                 </div>
             </div>

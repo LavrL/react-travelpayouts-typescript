@@ -3,9 +3,7 @@ import './MainComponent.css';
 import { ButtonComponent } from '../ButtonComponent/ButtonComponent';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
 import i18n from "i18next";
-import { useTranslation, withTranslation, Trans } from 'react-i18next';
-import langEng from '../../assets/en.json';
-import langRu from '../../assets/ru.json';
+// import { useTranslation, withTranslation, Trans } from 'react-i18next';
 
 interface MainComponentProps {
 }
@@ -21,7 +19,11 @@ interface IMainComponentState {
     serviss: string,
     balance: number,
     next_payout: number,
-    balanceTitle: string
+    balanceTitle: string,
+    payoffTitle: string,
+    services: string,
+    reset: string,
+    getBonus: string
 }
 
 export class MainComponent extends React.Component<MainComponentProps, IMainComponentState> {
@@ -32,7 +34,11 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
             bonuses: [],
             balance: 0,
             next_payout: 0,
-            balanceTitle: i18n.t('Pages.translation.balance')
+            balanceTitle: i18n.t('Pages.translation.balance'),
+            payoffTitle: i18n.t('Pages.translation.payoff'),
+            services: i18n.t('Pages.translation.services'),
+            reset: i18n.t('Pages.translation.reset'),
+            getBonus: i18n.t('Pages.translation.getBonus')
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.getPromocodes = this.getPromocodes.bind(this)
@@ -52,11 +58,15 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
         this.getPromocodes();
     }
     changeLanguage(lang: string) {
-        i18n.changeLanguage(lang).then( ()=>{
+        i18n.changeLanguage(lang).then(() => {
             i18n.options.lng = lang;
             i18n.t('key');
             this.setState({
-                balanceTitle: i18n.t('Pages.translation.balance')
+                balanceTitle: i18n.t('Pages.translation.balance'),
+                payoffTitle: i18n.t('Pages.translation.payoff'),
+                services: i18n.t('Pages.translation.services'),
+                reset: i18n.t('Pages.translation.reset'),
+                getBonus: i18n.t('Pages.translation.getBonus')
             })
         });
     }
@@ -85,30 +95,29 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
     }
 
     render() {
-        //const {t } = this.props;
         return (
             <div className="MainComponent">
                 <div className="MainComponent__title">
                     <ul className="MainComponent__title-list">
                         <li className="MainComponent__title-item">
                             <p className="MainComponent__title-item-balanss">
-                            {this.state.balanceTitle}
+                                {this.state.balanceTitle}
                             </p>
                             <p className="MainComponent__title-item-price">{this.state.balance} ₽</p>
                         </li>
                         <li className="MainComponent__title-item">
-                            <p className="MainComponent__title-item-balanss">К выплате</p>
+                            <p className="MainComponent__title-item-balanss">{this.state.payoffTitle}</p>
                             <p className="MainComponent__title-item-price">{this.state.next_payout} ₽</p>
                         </li>
                     </ul>
-                    <div>
-                        <button onClick={() => this.changeLanguage('ru')}>ru</button>
+                    <div className="MainComponent__title-buttons">
+                        <button className="MainComponent__title-button" onClick={() => this.changeLanguage('ru')}>ru</button>
                         <button onClick={() => this.changeLanguage('en')}>en</button>
                     </div>
                 </div>
                 <div className="MainComponent__MainMenu">
                     <p className="MainComponent__MainMenu_title">
-                        Сервисы
+                        {this.state.services}
                     </p>
                     <span className="MainComponent__MainMenu_filtr">Фильтр</span>
                     <div className="MainComponent__MainMenu_form2">
@@ -118,7 +127,7 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                                 onChange={this.changeHandler}
                                 value={this.state.serviss} />
                         </form>
-                        <ButtonComponent text="Сбросить"
+                        <ButtonComponent text={this.state.reset}
                             onClick={this.clearInput} />
                     </div>
                     {this.state.bonuses.filter(bonus => bonus.title.toLowerCase().startsWith(this.state.serviss))
@@ -127,24 +136,12 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                                 title={bonus.title}
                                 description={bonus.description}
                                 link={bonus.link}
-                                promocode={bonus.promocode} />
+                                promocode={bonus.promocode}
+                                buttonText={this.state.getBonus} />
                         })}
                 </div>
 
             </div >
         )
     }
-}
-
-const LanguageSwitcher = () => {
-    const { t, i18n } = useTranslation();
-    const changeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng);
-    }
-    return (
-        <div>
-            <button onClick={() => changeLanguage('de')}>de</button>
-            <button onClick={() => changeLanguage('en')}>en</button>
-        </div>
-    )
 }
