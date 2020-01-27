@@ -3,10 +3,6 @@ import './MainComponent.css';
 import { ButtonComponent } from '../ButtonComponent/ButtonComponent';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
 import i18n from "i18next";
-// import { useTranslation, withTranslation, Trans } from 'react-i18next';
-
-interface MainComponentProps {
-}
 
 interface BonusesData {
     title: string,
@@ -24,10 +20,10 @@ interface IMainComponentState {
     services: string,
     reset: string,
     getBonus: string,
-    promocodeTitle: string 
+    promocodeTitle: string
 }
 
-export class MainComponent extends React.Component<MainComponentProps, IMainComponentState> {
+export class MainComponent extends React.Component<{}, IMainComponentState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -144,7 +140,6 @@ export class MainComponent extends React.Component<MainComponentProps, IMainComp
                                 promocodeTitle={this.state.promocodeTitle} />
                         })}
                 </div>
-
             </div >
         )
     }

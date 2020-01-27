@@ -6,7 +6,9 @@ const path = require("path");
 const WebpackMd5Hash = require("webpack-md5-hash");
 
 module.exports = {
-  entry: { main: "./src/index.tsx" },
+  entry: {
+    main: "./src/index.tsx"
+  },
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[chunkhash].js",
@@ -23,7 +25,7 @@ module.exports = {
         },
         default: {
           minChunks: 2,
-          priority: -20,
+          priority: -20, 
           reuseExistingChunk: true
         }
       }
@@ -43,8 +45,8 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: { 
-          loader: 'url-loader?limit=100000' 
+        use: {
+          loader: 'url-loader?limit=100000'
         }
       },
       {

@@ -41,7 +41,7 @@ export class SearchComponent extends React.Component<SearchComponentProps, {}> {
                         <span className="SearchComponent__promocode">{this.props.promocodeTitle}</span>
                         <div className="SearchComponent__discount">
                             <div className="SearchComponent__promo">
-                                <input className="SearchComponent__promocode_input" type="text" defaultValue={this.props.promocode} id="#promo" />
+                                <input className="SearchComponent__promocode_input" type="text" defaultValue={this.props.promocode} name="#promo" />
                                 <button onClick={() => this.copyToClipBoard(this.props.promocode)} className="SearchComponent__promocode_input-icon_copy">
                                     <img src={icon_copy} /></button>
                             </div>
