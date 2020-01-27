@@ -41,6 +41,7 @@
     bottom: 12px;
     right: 20px;
     border: none;
+    cursor: pointer;
 }
 button:focus {
     outline:0;
