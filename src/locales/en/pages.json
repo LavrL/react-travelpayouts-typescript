@@ -5,6 +5,7 @@
         "services": "Services",
         "reset": "Reset",
         "getBonus": "Get Bonus",
-        "promocode": "PROMOCODE"
+        "promocode": "PROMOCODE",
+        "filter": "Filter"
     }
 }

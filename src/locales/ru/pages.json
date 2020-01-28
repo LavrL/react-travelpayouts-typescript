@@ -5,6 +5,7 @@
         "services": "Сервисы",
         "reset": "Сбросить",
         "getBonus": "Получить бонус",
-        "promocode": "ПРОМОКОД"
+        "promocode": "ПРОМОКОД",
+        "filter": "Фильтр"
     }
 }

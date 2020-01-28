@@ -20,7 +20,8 @@ interface IMainComponentState {
     services: string,
     reset: string,
     getBonus: string,
-    promocodeTitle: string
+    promocodeTitle: string,
+    filter: string
 }
 
 export class MainComponent extends React.Component<{}, IMainComponentState> {
@@ -36,7 +37,8 @@ export class MainComponent extends React.Component<{}, IMainComponentState> {
             services: i18n.t('Pages.translation.services'),
             reset: i18n.t('Pages.translation.reset'),
             getBonus: i18n.t('Pages.translation.getBonus'),
-            promocodeTitle: i18n.t('Pages.translation.promocode')
+            promocodeTitle: i18n.t('Pages.translation.promocode'),
+            filter: i18n.t('Pages.translation.filter'),
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.getPromocodes = this.getPromocodes.bind(this)
@@ -65,7 +67,8 @@ export class MainComponent extends React.Component<{}, IMainComponentState> {
                 services: i18n.t('Pages.translation.services'),
                 reset: i18n.t('Pages.translation.reset'),
                 getBonus: i18n.t('Pages.translation.getBonus'),
-                promocodeTitle: i18n.t('Pages.translation.promocode')
+                promocodeTitle: i18n.t('Pages.translation.promocode'),
+                filter: i18n.t('Pages.translation.filter')
             })
         });
     }
@@ -118,7 +121,7 @@ export class MainComponent extends React.Component<{}, IMainComponentState> {
                     <p className="MainComponent__MainMenu_title">
                         {this.state.services}
                     </p>
-                    <span className="MainComponent__MainMenu_filtr">Фильтр</span>
+                    <span className="MainComponent__MainMenu_filtr">{this.state.filter}</span>
                     <div className="MainComponent__MainMenu_form2">
                         <form className="MainComponent__MainMenu_form">
                             <input className="MainComponent__MainMenu_form-input"
