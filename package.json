@@ -10,6 +10,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "@types/clean-webpack-plugin": "^0.1.3",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "autoprefixer": "^9.4.7",

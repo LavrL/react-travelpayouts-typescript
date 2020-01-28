@@ -3,7 +3,7 @@
     "allowJs": true,
     "jsx": "react",
     "module": "es6",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "outDir": "./build/",
     "skipLibCheck": true,
     "sourceMap": true,
@@ -14,10 +14,15 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "typeRoots": [
+      "./Types",
+      "./node_modules/@types"
+    ]
   },
   "files": [
     "custom.d.ts"
   ],
+
   "include": [
     "./src/**/*"
   ]
