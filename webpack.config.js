@@ -85,7 +85,10 @@ module.exports = {
       inject: false,
       hash: true,
       template: "./src/index.html",
-      filename: "index.html"
+      filename: "index.html",
+      minify: {
+        collapseWhitespace: true
+      }
     }),
     new WebpackMd5Hash(), //replace a standard webpack chunkhash with md5
     new CopyWebpackPlugin([ //copy assets files
