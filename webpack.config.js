@@ -81,7 +81,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "style.[contenthash].css" //extracts CSS into separate files
     }),
-    new HtmlWebpackPlugin({ //generate HTML file from HTML template
+    new HtmlWebpackPlugin({ 
       inject: false,
       hash: true,
       template: "./src/index.html",
@@ -91,7 +91,7 @@ module.exports = {
       }
     }),
     new WebpackMd5Hash(), //replace a standard webpack chunkhash with md5
-    new CopyWebpackPlugin([ //copy assets files
+    new CopyWebpackPlugin([ 
       { from: 'src/assets', to: 'assets' }
     ]),
   ]

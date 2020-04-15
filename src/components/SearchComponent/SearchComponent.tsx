@@ -21,7 +21,6 @@ export class SearchComponent extends React.Component<SearchComponentProps, {}> {
         this.copyToClipBoard = this.copyToClipBoard.bind(this);
     }
     copyToClipBoard(txt: string) {
-        console.log(txt);
         var textField = document.createElement('textarea')
         textField.innerText = txt;
         document.body.appendChild(textField)

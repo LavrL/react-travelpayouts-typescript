@@ -5,7 +5,6 @@ import resources from './languages';
 i18n
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
-  // init i18next
   .init({
     resources,
     fallbackLng: 'en',

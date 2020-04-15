@@ -49,7 +49,6 @@ export class MainComponent extends React.Component<{}, IMainComponentState> {
         this.setState({ serviss: event.target.value });
     }
     clearInput() {
-        console.log('Clearing ...');
         this.setState({
             serviss: ''
         });
@@ -86,9 +85,6 @@ export class MainComponent extends React.Component<{}, IMainComponentState> {
                     balance: bonuses.header.balance,
                     next_payout: bonuses.header.next_payout
                 })
-                console.log('bonuses - ', this.state.bonuses);
-                console.log('bonuses.header.balance - ', this.state.balance);
-                console.log('bonuses.header.next_payout - ', this.state.next_payout);
             }
             )
             .catch(error => {
